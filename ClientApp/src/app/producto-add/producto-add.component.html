@@ -1,0 +1,36 @@
+
+<img src="assets/Imagenes/producto.jpeg" width="1100" height="500" side="400" >
+
+<div style="text-align:center" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 style="text-align:center" class="h2" style="text-align: center">Agregar Producto <img src="assets/Imagenes/agregarProduc.jpeg" width="80" height="80" side="80" ></h1>
+</div>
+
+<div class="form-group ">
+  <label>Codigo:
+    <input style="text-align:center" [(ngModel)]="producto.producto_id" class="form-control" placeholder="digite el Codigo" type="text" />
+  </label>
+</div>
+<div class="form-group">
+  <label> Nombre Producto:
+    <input style="text-align:center" [(ngModel)]="producto.producto_nombre" step="ffff" class="form-control" placeholder="digite el nombre del producto" type="text" />
+  </label>
+</div>
+<div class="form-group">
+  <label>costo:
+    <input style="text-align:center" [(ngModel)]="producto.producto_costo" class="form-control" placeholder="digite el precio " type="number" />
+  </label>
+</div>
+<div class="form-group">
+  <label>Descripcion:
+    <input style="text-align:center"  [(ngModel)]="producto.producto_descripcion" class="form-control" placeholder="digite la descripcion " type="text" />
+  </label>
+</div>
+<div class="form-group">
+  <label>Imagen:
+    <input [(ngModel)]="producto.producto_imagen" class="form-control" placeholder="digite imagen " type="text" />
+  </label>
+</div>
+
+<div class="form-group">
+  <button (click)="add()" class="btn btn-primary">Agregar Producto </button>
+</div>

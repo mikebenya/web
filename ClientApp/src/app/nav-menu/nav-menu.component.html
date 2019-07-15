@@ -1,0 +1,36 @@
+<header>
+    <nav style="text-align:center" class='navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3'>
+      <div style="text-align:center" class="container">
+        <img style="text-align:center"  src="assets/Imagenes/LogoBlanco.jpeg"  [routerLink]='["/"]' width="150">
+       
+        <button style="text-align:center" class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+          aria-label="Toggle navigation" [attr.aria-expanded]="isExpanded" (click)="toggle()">
+          <span style="text-align:center" class="navbar-toggler-icon"></span>
+        </button>
+        <div style="text-align:center" class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]='{"show": isExpanded}'>
+          <ul style="text-align:center" class="navbar-nav flex-grow">
+            <li style="text-align:center" class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+              <a style="text-align:center"  class="nav-link text-dark" [routerLink]='["/"]'>Home<img src="assets/Imagenes/inicio.jpeg" width="50" height="50" side="50" ></a>
+            </li>
+            <li style="text-align:center"  class="nav-item" [routerLinkActive]='["link-active"]'>
+              <a style="text-align:center"  class="nav-link text-dark" [routerLink]='["/productoAdd"]'>Agregar productos<img src="assets/Imagenes/agregarProduc.jpeg" width="50" height="50" side="50" ></a>
+            </li>
+            <li style="text-align:center"  class="nav-item" [routerLinkActive]='["link-active"]'>
+              <a style="text-align:center" class="nav-link text-dark" [routerLink]='["/clientesAdd"]'>Agregar clientes<img src="assets/Imagenes/agregarClien.jpeg" width="50" height="50" side="50" ></a>
+            </li>
+            <li style="text-align:center" class="nav-item" [routerLinkActive]='["link-active"]'>
+              <a style="text-align:center" class="nav-link text-dark" [routerLink]='["/clientesList"]'>Lista clientes<img src="assets/Imagenes/listaCliente.jpeg" width="50" height="50" side="50" ></a>
+            </li>
+            <li style="text-align:center" class="nav-item" [routerLinkActive]='["link-active"]'>
+              <a style="text-align:center" class="nav-link text-dark" [routerLink]='["/productoList"]'>Lista Productos<img src="assets/Imagenes/listaProducto.jpeg" width="50" height="50" side="50" ></a>
+            </li>
+            <li style="text-align:center" class="nav-item" [routerLinkActive]='["link-active"]'>
+              <a style="text-align:center" class="nav-link text-dark" [routerLink]='["/detalle"]'>Lista ventas<img src="assets/Imagenes/carrito.jpeg" width="50" height="50" side="50" ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
+  </header>
+  

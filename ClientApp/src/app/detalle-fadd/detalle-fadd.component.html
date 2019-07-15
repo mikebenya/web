@@ -1,0 +1,179 @@
+<style type="text/css">
+    #Contenedor {
+        background: rgb(83, 79, 77);
+    }
+
+    #izquierda {
+        float: left;
+        color: rgb(113, 114, 119);
+
+    }
+
+    #debajo {
+        float: below;
+        color: rgb(113, 114, 119);
+
+    }
+
+    #arriba {
+        float: above;
+        color: rgb(113, 114, 119);
+
+    }
+
+    #izquierda1 {
+        float: right;
+        color: rgb(0, 0, 0);
+    }
+
+    #izquierda2 {
+        float: left;
+        color: rgb(113, 114, 119);
+    }
+
+    #izquierda3 {
+        float: left;
+        color: rgb(113, 114, 119);
+    }
+
+    #derecha {
+        float: left;
+        color: rgb(0, 0, 0);
+    }
+
+    h5 {
+        color: rgb(0, 0, 0);
+    }
+</style>
+<div>
+    <h1 class="h2" style="text-align: center">Detalles de compra <img src="assets/Imagenes/carrito.jpeg" width="80"
+            height="80" side="80">
+    </h1>
+</div>
+
+<div>
+
+
+    <!-- <div class="form-group" id="izquierda" style="text-align:center">
+        <div class="form-group">
+            <label>Cedula de cliente:
+                <input style="text-align:center"  id="texto" class="form-control" placeholder="digite la cedula" type="text" />
+            </label>
+            <div class="form-group">
+                <button (click)="buscar(1)" routerLink="/detalle/{{cliente_id}}" class="btn btn-primary">Buscar Cliente</button>
+            </div>
+        </div>
+    </div> -->
+
+
+    <div class="form-group" id="izquierda">
+        <label> Nombre:
+            <input style="text-align:center" 
+                step="ffff" class="form-control" placeholder=" nombre" type="text" />
+        </label>
+    </div>
+
+    <div class="form-group" id="izquierda">
+        <label> Apellido:
+            <input style="text-align:center" 
+                 class="form-control" placeholder="apellido " type="text" />
+        </label>
+    </div>
+
+    <div class="form-group" id="izquierda">
+        <label>numero Celular:
+            <input style="text-align:center" 
+                 class="form-control" placeholder="telefono " type="text" />
+        </label>
+    </div>
+
+    <div class="form-group" id="izquierda">
+        <label>Correo:
+            <input style="text-align:center"  
+                class="form-control" placeholder="digite el correo " type="email" />
+        </label>
+    </div>
+    
+    <div id="izquierda" class="form-group">
+        <label>
+            <button (click)="PDF()" right="300" class="btn btn-primary" style="text-align:center">Crear PFD</button>
+        </label>
+    </div>
+</div>
+
+
+<!-- <div>
+    <table class='table table-dark table-striped' style="text-align:center">
+        <thead>
+            <tr>
+                <th>codFac</th>
+                <th>codProduc</th>
+                <th>NombreProducto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Imagen</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let producto of productos ">
+            <td><input style="text-align:center"  [(ngModel)]="detalleFactura.detalle_id"  class="form-control" type="text" />
+            </td>
+            <td><input style="text-align:center" [(ngModel)]="producto.producto_id" [(ngModel)]="detalleFactura.detalle_cod_producto" class="form-control" type="text" /> </td>
+            <td>{{producto.producto_nombre}}</td>
+            <td><input style="text-align:center" [(ngModel)]="detalleFactura.detalle_cantidad" class="form-control" type="text" id="canti"/> </td>
+            <td><input style="text-align:center" [(ngModel)]="producto.producto_precio" [(ngModel)]="detalleFactura.detalle_precio_ven"
+                    class="form-control" type="text" /> </td>
+            <td><img src={{producto.producto_imagen}} high="50" width="100"></td>
+        </tr>
+    </table>
+    <script>
+
+
+    </script>
+
+
+    <div *ngIf="cliente">
+        <label>Cedula:
+            {{cliente.id}}
+        </label>
+    </div>
+
+
+</div> -->
+
+<div>
+    <table class='table table-dark table-striped' style="text-align: center">
+        <thead>
+            <tr>
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Imagen</th>
+                <th>SubTotal</th>
+            </tr>
+        </thead>
+
+        <tr *ngFor="let producto of productos">
+            <td>{{producto.producto_id}}</td>
+            <td>{{producto.producto_nombre}}</td>
+            <td>{{producto.producto_descripcion}}</td>
+            <td>
+                <div class="form-group">
+                    <label>Cantidad:
+                        <input style="text-align:center" [(ngModel)]="canti" class="form-control" type="number" />
+                    </label>
+                </div>
+            </td>
+            <td>{{producto.producto_precio}}</td>
+            <td><img src={{producto.producto_imagen}} high="50" width="150"></td>
+            <td>{{producto.producto_precio*canti}}</td>
+        </tr>
+
+    </table>
+    <div class="form-group">
+        <button (click)="buy()" right="300" class="btn btn-primary" [routerLink]='["/listaventa"]'>COMPRAR
+            SELECIONADOS</button>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+<div class="card">
+<div class="card-content"> 
+
+
+
+
+<img src="assets/Imagenes/cliente-1.jpeg" width="1100" height="500" side="400">
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2" style="text-align: center">Registrar Cliente <img src="assets/Imagenes/agregarClien.jpeg" width="80"
+            height="80" side="80"></h1>
+</div>
+
+
+<div class="form-group">
+    <label>Cedula:
+        <input style="text-align:center" [(ngModel)]="cliente.cliente_id" class="form-control" placeholder="digite la cedula"
+            type="text" required/>
+    </label>
+</div>
+<div class="form-group">
+    <label>Primer Nombre:
+        <input style="text-align:center" [(ngModel)]="cliente.cliente_nombre1" step="ffff" class="form-control"
+            placeholder="digite el primer nombre" type="text" required/>
+    </label>
+</div>
+<div class="form-group">
+    <label>Segundo Nombre:
+        <input style="text-align:center" [(ngModel)]="cliente.cliente_nombre2" step="ffff" class="form-control"
+            placeholder="digite el segundo nombre" type="text" required/>
+    </label>
+</div>
+<div class="form-group">
+    <label>Primer Apellido:
+        <input style="text-align:center" [(ngModel)]="cliente.cliente_apellido1" class="form-control"
+            placeholder="digite el primer apellido " type="text" required/>
+    </label>
+</div>
+<div class="form-group">
+    <label>Segundo Apellido:
+        <input style="text-align:center" [(ngModel)]="cliente.cliente_apellido2" class="form-control"
+            placeholder="digite el segundo apellido " type="text" required/>
+    </label>
+</div>
+<div class="form-group">
+    <label>numero Celular:
+        <input style="text-align:center" [(ngModel)]="cliente.cliente_telefono" class="form-control"
+            placeholder="digite el telefono " type="text" required/>
+    </label>
+</div>
+
+<div class="form-group">
+    <label>Direccion:
+        <div class="form-group">
+            <label>Calle:
+                <input style="text-align:center" [(ngModel)]="cliente.cliente_calle" class="form-control"
+                    placeholder="digite la calle " type="text" required/>
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Casa:
+                <input style="text-align:center" [(ngModel)]="cliente.cliente_casa" class="form-control"
+                    placeholder="digite la casa " type="text" required/>
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Barrio:
+                <input style="text-align:center" [(ngModel)]="cliente.cliente_barrio" class="form-control"
+                    placeholder="digite el barrio " type="text" required/>
+            </label>
+        </div>
+    </label>
+</div>
+
+<div class="form-group">
+    <label>fecha De Nacimiento:
+        <input style="text-align:center" [(ngModel)]="cliente.cliente_fechaN" class="form-control" type="date" required/>
+    </label>
+</div>
+
+<div class="form-group">
+        <label>Correo:
+            <input style="text-align:center" [(ngModel)]="cliente.cliente_email" class="form-control"
+                placeholder="digite el correo " type="email" required/>
+        </label>
+    </div>
+<div class="form-group">
+    <button (click)="add()" class="btn btn-primary">Registrar Cliente</button>
+</div>
+
+</div>
+</div>
