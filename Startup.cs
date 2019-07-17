@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using TaskSharpHTTP.Models;
 
+
 namespace ProyectoMorenita
 {
     public class Startup
@@ -22,7 +23,11 @@ namespace ProyectoMorenita
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<MorenitaContext>(opt => opt.UseInMemoryDatabase("TaskBD"));
+        //      var oraConn = "User Id=zenky;Password=zenky;Data Source=(DESCRIPTION =    (ADDRESS = (PROTOCOL = TCP)(HOST = DESKTOP-DUPN04B)(PORT = 1521))    (CONNECT_DATA =      (SERVER = DEDICATED)      (SERVICE_NAME = xe) ) ))";
+    
+        //    services.AddDbContext<MorenitaContext>(opt =>
+        //     opt.UseOracle(oraConn));
+        services.AddDbContext<MorenitaContext>(opt => opt.UseInMemoryDatabase("TaskBD"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // In production, the Angular files will be served from this directory

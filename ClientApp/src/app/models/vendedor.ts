@@ -1,3 +1,5 @@
+import { MaestraFactura } from './maestra-factura';
+
 export class Vendedor {
     vendedor_id:string;
     vendedor_nombre1_ven: string;
@@ -10,4 +12,5 @@ export class Vendedor {
     vendedor_Telefono_ven: string; 
     vendedor_usuario: string;
     vendedor_contrasena: string;
+    facturasMaestros:MaestraFactura[];
 }

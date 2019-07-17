@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MaestraFactura } from '../models/maestra-factura';
+import { FacturaMaestroService } from '../services/factura-maestro.service';
 
 @Component({
   selector: 'app-factura-list',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FacturaListComponent implements OnInit {
 
-  constructor() { }
+  Facturas: MaestraFactura[];
+  constructor(private facturaService: FacturaMaestroService) { }
 
   ngOnInit() {
+    this.getVentas();
   }
 
+  getVentas() {
+    this.facturaService.getFacturas().subscribe(Facturas => this.Facturas = Facturas);
+  }
 }

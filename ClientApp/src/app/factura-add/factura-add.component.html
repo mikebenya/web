@@ -1,1 +1,92 @@
-<p>factura-add works!</p>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+
+
+<!-- <body>
+    <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <p class="navbar-text pull-left">© 2019 - Zenky Mark.
+
+            </p>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+</body> -->
+
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="container">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4><i class="glyphicon glyphicon-edit"></i> Nueva Factura</h4>
+            </div>
+            <div class="panel-body">
+                <div class="container" id="advanced-search-form">
+
+
+                    <form class="form-horizontal" role="form" id="datos_factura">
+                        <div class="form-group row">
+                            <label for="nombre_cliente" class="col-md-1 control-label">Cliente</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control input-sm ui-autocomplete-input"
+                                    id="nombre_cliente" placeholder="Selecciona un cliente" required=""
+                                    autocomplete="off">
+                                <input id="id_cliente" name="id_cliente" type="hidden" value="61">
+                            </div>
+                            <label for="tel1" class="col-md-1 control-label">Teléfono</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control input-sm" id="tel1" placeholder="Teléfono"
+                                    readonly="">
+                            </div>
+                            <label for="mail" class="col-md-1 control-label">Email</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control input-sm" id="mail" placeholder="Email"
+                                    readonly="">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="empresa" class="col-md-1 control-label">Vendedor</label>
+                            <div class="col-md-3">
+                                <select class="form-control input-sm" id="id_vendedor" name="id_vendedor">
+                                    <option *ngFor="let vendedor of vendedores" value="{{vendedor.vendedor_id}}">
+                                        {{vendedor.vendedor_nombre1_ven}}</option>
+                                </select>
+                            </div>
+                            <label for="tel2" class="col-md-1 control-label">Fecha</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control input-sm" [(ngModel)]="fechaDeHoy" name="fechaDeHoy" readonly=""
+                                   >
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="pull-right">
+                                <button type="button" class="btn btn-default" data-toggle="modal" 
+                                routerLink="/productoAdd">
+                                    <span class="glyphicon glyphicon-plus"></span> Nuevo producto
+                                </button>
+                                <button type="button" class="btn btn-default" data-toggle="modal"
+                                routerLink="/clientesAdd">
+                                    <span class="glyphicon glyphicon-user"></span> Nuevo cliente
+                                </button>                           
+                                <button type="submit" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-floppy-disk"></span> Guardar factura
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

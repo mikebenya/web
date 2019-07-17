@@ -12,7 +12,7 @@ export class ProductoAddComponent implements OnInit {
   producto: Producto;
   constructor(private productoService: ProductoService) { }
   ngOnInit() {
-    this.producto = { producto_id: '', producto_nombre: '', producto_precio: 0, producto_descripcion: '', producto_imagen: '', producto_costo: 0, producto_iva: 0, producto_estado: false };
+    this.producto = { producto_id: '', producto_nombre: '', producto_precio: 0, producto_descripcion: '', producto_imagen: '', producto_costo: 0, producto_iva: 0, producto_estado: false,};
   }
 
   add() {

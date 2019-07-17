@@ -1,0 +1,57 @@
+
+    #Contenedor {
+        background: rgb(83, 79, 77);
+    }
+
+    #izquierda {
+        float: left;
+        color: rgb(113, 114, 119);
+
+    }
+
+    #h4 {
+        
+        color: rgb(113, 114, 119);
+
+    }
+    .panel-info>.panel-heading {
+        color: #070605;
+        background-color: #6b5349;
+        border-color: #000000;
+    }
+
+    #debajo {
+        float: below;
+        color: rgb(113, 114, 119);
+
+    }
+
+    #arriba {
+        float: above;
+        color: rgb(113, 114, 119);
+
+    }
+
+    #izquierda1 {
+        float: right;
+        color: rgb(0, 0, 0);
+    }
+
+    #izquierda2 {
+        float: left;
+        color: rgb(113, 114, 119);
+    }
+
+    #izquierda3 {
+        float: left;
+        color: rgb(113, 114, 119);
+    }
+
+    #derecha {
+        float: left;
+        color: rgb(0, 0, 0);
+    }
+
+    h5 {
+        color: rgb(0, 0, 0);
+    }

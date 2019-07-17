@@ -32,7 +32,6 @@ export class ClienteService {
   get(id: number): Observable<Cliente> {
 
     const url = `${this.baseUrl + 'api/cliente'}/${id}`;
-
     return this.http.get<Cliente>(url).pipe(
       tap(_ => this.log(`fetched Socio id=${id}`)),
       catchError(this.handleError<Cliente>(`get id=${id}`))

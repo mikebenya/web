@@ -22,6 +22,8 @@ import { FacturaAddComponent } from './factura-add/factura-add.component';
 import { FacturaListComponent } from './factura-list/factura-list.component';
 import { FiltroPipe } from './filtro.pipe';
 import { FiltroproductosPipe } from './filtro/filtroproductos.pipe';
+import { MenuComponent } from './menu/menu.component';
+import { LoginPipe } from './filtro/login.pipe';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { FiltroproductosPipe } from './filtro/filtroproductos.pipe';
     FacturaAddComponent,
     FacturaListComponent,
     FiltroPipe,
-    FiltroproductosPipe
+    FiltroproductosPipe,
+    MenuComponent,
+    LoginPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

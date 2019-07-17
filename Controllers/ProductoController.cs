@@ -19,25 +19,32 @@ namespace TaskSharpHTTP.Controllers
 
             if (_context.Productos.Count() == 0)
             {
-                _context.Productos.Add(new Producto { PRODUCTO_ID = "1", PRODUCTO_NOMBRE= "fresa",PRODUCTO_PRECIO = 16000,PRODUCTO_DESCRIPCION = "4 fresa con rosa ",PRODUCTO_COSTO=19200,PRODUCTO_IMAGEN="assets/Imagenes/rosa4.jpeg",PRODUCTO_ESTADO=false});
-                _context.Productos.Add(new Producto { PRODUCTO_ID = "2", PRODUCTO_NOMBRE= "fresa con chocolate",PRODUCTO_PRECIO = 16000,PRODUCTO_DESCRIPCION = "4 fresa con rosa ",PRODUCTO_COSTO=19200,PRODUCTO_IMAGEN="assets/Imagenes/rosa6.jpeg",PRODUCTO_ESTADO=false});
-                _context.Productos.Add(new Producto { PRODUCTO_ID = "3", PRODUCTO_NOMBRE= "fresa y cerveza",PRODUCTO_PRECIO = 16000,PRODUCTO_DESCRIPCION = "4 fresa con rosa ",PRODUCTO_COSTO=19200,PRODUCTO_IMAGEN="assets/Imagenes/rosacoro.jpeg",PRODUCTO_ESTADO=false});
+                _context.Productos.Add(new Producto { PRODUCTO_ID = "1", PRODUCTO_NOMBRE= "fresa",PRODUCTO_PRECIO = 16000,PRODUCTO_DESCRIPCION = "4 fresa con rosa ",PRODUCTO_COSTO=19200,PRODUCTO_IMAGEN="assets/Imagenes/rosa4.jpeg",PRODUCTO_ESTADO=false,PRODUCTO_IVA=0});
+                _context.Productos.Add(new Producto { PRODUCTO_ID = "2", PRODUCTO_NOMBRE= "fresa con chocolate",PRODUCTO_PRECIO = 16000,PRODUCTO_DESCRIPCION = "4 fresa con rosa ",PRODUCTO_COSTO=19200,PRODUCTO_IMAGEN="assets/Imagenes/rosa6.jpeg",PRODUCTO_ESTADO=false,PRODUCTO_IVA=0});
+                _context.Productos.Add(new Producto { PRODUCTO_ID = "3", PRODUCTO_NOMBRE= "fresa y cerveza",PRODUCTO_PRECIO = 16000,PRODUCTO_DESCRIPCION = "4 fresa con rosa ",PRODUCTO_COSTO=19200,PRODUCTO_IMAGEN="assets/Imagenes/rosacoro.jpeg",PRODUCTO_ESTADO=false,PRODUCTO_IVA=0});
                _context.SaveChanges();
             }
         }
 
         // POST: api/Task
         [HttpPost]
-        public async Task<ActionResult<Producto>> PostTaskItem(Producto item)
+        public async Task<ActionResult<Producto>> PostProducto(Producto newProducto)
         {
-            _context.Productos.Add(item);
+             var varProducto = await _context.Productos.FindAsync(newProducto.PRODUCTO_ID) ;
+            if (varProducto!=null)
+            {
+                return NotFound();
+            }else{
+                _context.Productos.Add(newProducto);
             await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetTaskItem), new { id = item.PRODUCTO_ID }, item);
+            return CreatedAtAction(nameof(GetProducto), new { id = newProducto.PRODUCTO_ID }, newProducto);
+            }
         }
+
+
         // PUT: api/Task/5
         [HttpPut("{producto_id}")]
-        public async Task<IActionResult> PutTaskItem(string id, Producto item)
+        public async Task<IActionResult> PutProducto(string id, Producto item)
         {
             if (id != item.PRODUCTO_ID)
             {
@@ -53,14 +60,14 @@ namespace TaskSharpHTTP.Controllers
 
         // GET: api/Task
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Producto>>> GetTaskItems()
+        public async Task<ActionResult<IEnumerable<Producto>>> GetProductos()
         {
             return await _context.Productos.ToListAsync();
         }
 
         // GET: api/Task/5
         [HttpGet("{producto_id}")]
-        public async Task<ActionResult<Producto>> GetTaskItem(string id)
+        public async Task<ActionResult<Producto>> GetProducto(string id)
         {
             var taskItem = await _context.Productos.FindAsync(id);
 
@@ -74,7 +81,7 @@ namespace TaskSharpHTTP.Controllers
 
         // DELETE: api/Todo/5
         [HttpDelete("{producto_id}")]
-        public async Task<IActionResult> DeleteTaskItem(string id)
+        public async Task<IActionResult> DeleteProducto(string id)
         {
             var TaskItem = await _context.Productos.FindAsync(id);
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../models/cliente';
 import { ClienteService } from '../services/cliente.service';
+import { MaestraFactura } from '../models/maestra-factura';
 
 @Component({
   selector: 'app-cliente-add',
@@ -8,11 +9,11 @@ import { ClienteService } from '../services/cliente.service';
   styleUrls: ['./cliente-add.component.css']
 })
 export class ClienteAddComponent implements OnInit {
-
   cliente: Cliente;
+
   constructor(private clienteService: ClienteService) { }
   ngOnInit() {
-    this.cliente = { cliente_id: '', cliente_nombre1: '',cliente_nombre2: '', cliente_apellido1: '',cliente_apellido2: '',cliente_calle:'', cliente_casa: '' ,cliente_barrio:'',cliente_fechaN:null, cliente_telefono: '' ,cliente_email:''};
+    this.cliente = { cliente_id: '', cliente_nombre1: '',cliente_nombre2: '', cliente_apellido1: '',cliente_apellido2: '',cliente_calle:'', cliente_casa: '' ,cliente_barrio:'',cliente_fechaN:null, cliente_telefono: '' ,cliente_email:'',facturaMaestros:null};
     }
     
     add() {

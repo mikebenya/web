@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductoService } from '../services/producto.service';
 import { Producto } from '../models/producto';
 import { DetalleFacturaService } from '../services/detalle-factura.service';
-import { DetalleFactura } from '../models/detalle-factura';
+import { FacturaDetalle } from '../models/FacturaDetalle';
 import { CheckboxControlValueAccessor } from '@angular/forms';
 import { Alert } from 'selenium-webdriver';
 @Component({
@@ -12,15 +12,16 @@ import { Alert } from 'selenium-webdriver';
 })
 export class ProductoListComponent implements OnInit {
 
-  detalleFactura: DetalleFactura;
+  detalleFacturas : FacturaDetalle[];
   producto : Producto;
   productos: Producto[];
   constructor(private productoService: ProductoService, private detalleFacturaService: DetalleFacturaService) { }
   filterPost = '';
+  detalles: FacturaDetalle[];
   ngOnInit() {
     this.getAll();
-    this.producto = { producto_id: '', producto_nombre: '',  producto_precio: 0, producto_descripcion: '', producto_imagen: '',producto_costo:0 ,producto_iva:0 ,producto_estado:false };
-    this.detalleFactura = { detalle_id: '', detalle_cantidad: 0, detalle_precio_ven: 0, detalle_fecha_det:null,detalle_subtotal: 0, detalle_cod_factura:'',detalle_cod_producto:'' };
+    this.producto = { producto_id: '', producto_nombre: '',  producto_precio: 0, producto_descripcion: '', producto_imagen: '',producto_costo:0 ,producto_iva:0 ,producto_estado:false};
+    
   }
 
 

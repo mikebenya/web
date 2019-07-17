@@ -1,3 +1,5 @@
+import { MaestraFactura } from './maestra-factura';
+
 export class Cliente {
     
     cliente_id:string;
@@ -11,5 +13,6 @@ export class Cliente {
     cliente_fechaN: Date;
     cliente_telefono: string; 
     cliente_email: string;
+    facturaMaestros:MaestraFactura[];
 }
 

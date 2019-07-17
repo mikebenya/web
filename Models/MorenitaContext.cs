@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using Oracle.ManagedDataAccess;
+
 namespace TaskSharpHTTP.Models
 {
 public class MorenitaContext : DbContext
@@ -8,8 +10,8 @@ base(options)
 {
 }
 public DbSet<Cliente> Clientes { get; set; }
-public DbSet<Detallefactura> Detallefacturas { get; set; }
-public DbSet<Maestrafactura> Maestrafacturas { get; set; }
+public DbSet<FacturaDetalle> FacturaDetalles { get; set; }
+public DbSet<FacturaMaestro> FacturaMaestros { get; set; }
 public DbSet<Producto> Productos { get; set; }
 public DbSet<Vendedor> Vendedores { get; set; }
 }

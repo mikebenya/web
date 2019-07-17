@@ -8,7 +8,7 @@ namespace TaskSharpHTTP.Models
     [Table("VENDEDOR")]
 public class Vendedor
 {
-[Key][JsonProperty("vendedor_id")] public string VENDEDOR_ID { get; set; }
+[Key][JsonProperty("vendedor_id")][DatabaseGenerated(DatabaseGeneratedOption.None)] public string VENDEDOR_ID { get; set; }
 [JsonProperty("vendedor_nombre1_ven")] public string VENDEDOR_NOMBRE1_VEN { get; set; }
 [JsonProperty("vendedor_nombre2_ven")] public string VENDEDOR_NOMBRE2_VEN { get; set; }
 [JsonProperty("vendedor_apellido1_ven")] public string VENDEDOR_APELLIDO1_VEN { get; set; }
@@ -19,7 +19,7 @@ public class Vendedor
 [JsonProperty("vendedor_Telefono_ven")] public string VENDEDOR_TELEFONO_VEN { get; set; }
 [JsonProperty("vendedor_usuario")] public string VENDEDOR_USUARIO { get; set; }
 [JsonProperty("vendedor_contrasena")] public string VENDEDOR_CONTRASENA { get; set; }
-public virtual List<Maestrafactura> Maestrafactura { get; set; }
+[JsonProperty("facturasMaestros")] public virtual List<FacturaMaestro> FacturaMaestros { get; set; }
 
 }
 }

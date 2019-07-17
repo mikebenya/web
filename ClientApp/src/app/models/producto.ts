@@ -1,3 +1,5 @@
+import { FacturaDetalle } from './FacturaDetalle';
+
 export class Producto {
     producto_id: string;
     producto_nombre: string;
