@@ -12,7 +12,7 @@ namespace TaskSharpHTTP.Models
     {
         [Key] [JsonProperty("maestro_id")][DatabaseGenerated(DatabaseGeneratedOption.None)] public string MAESTRO_ID { get; set; }
         [JsonProperty("maestro_fecha_fac")] public DateTime MAESTRO_FECHA { get; set; }
-        [JsonProperty("maestro_total")] public double MAESTRO_TOTAL { get{return facturaDetalles.Sum(s=>s.DETALLE_SUBTOTAL);} set{} }
+        [JsonProperty("maestro_total")] public double MAESTRO_TOTAL { get; set; }
         [JsonProperty("maestro_facDetalles")] public virtual List<FacturaDetalle> facturaDetalles { get; set; }
         [ForeignKey("FK_CLIENTE")] [JsonProperty("cliente_id")] public string CLIENTE_ID { get; set; }
         [JsonProperty("cliente")] public virtual Cliente Cliente { get; set; }

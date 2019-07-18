@@ -35,7 +35,7 @@
 
                     <form class="form-horizontal" role="form" id="datos_factura">
                         <div class="form-group row">
-                            <label for="nombre_cliente" class="col-md-1 control-label">Cliente</label>
+                            <label for="nombre_cliente" [(ngModel)]="nom" class="col-md-1 control-label">Cliente</label>
                             <div class="col-md-3">
                                 <input type="text" class="form-control input-sm ui-autocomplete-input"
                                     id="nombre_cliente" placeholder="Selecciona un cliente" required=""
@@ -53,7 +53,41 @@
                                     readonly="">
                             </div>
                         </div>
-
+                        <script>
+                                $(function() {
+                                                $("#nombre_cliente").autocomplete({
+                                                    source: "./ajax/autocomplete/clientes.php",
+                                                    minLength: 2,
+                                                    select: function(event, ui) {
+                                                        event.preventDefault();
+                                                        $('#id_cliente').val(ui.email_cliente);
+                                                        $('#nombre_cliente').val(ui.item.nombre_cliente);
+                                                        $('#tel1').val(ui.item.telefono_cliente);
+                                                        $('#mail').val(ui.item.email_cliente);
+                                                                                        
+                                                        
+                                                     }
+                                                });
+                                                 
+                                                
+                                            });
+                                            
+                            $("#nombre_cliente" ).on( "keydown", function( event ) {
+                                                if (event.keyCode== $.ui.keyCode.LEFT || event.keyCode== $.ui.keyCode.RIGHT || event.keyCode== $.ui.keyCode.UP || event.keyCode== $.ui.keyCode.DOWN || event.keyCode== $.ui.keyCode.DELETE || event.keyCode== $.ui.keyCode.BACKSPACE )
+                                                {
+                                                    $("#id_cliente" ).val("");
+                                                    $("#tel1" ).val("");
+                                                    $("#mail" ).val("");
+                                                                    
+                                                }
+                                                if (event.keyCode==$.ui.keyCode.DELETE){
+                                                    $("#nombre_cliente" ).val("");
+                                                    $("#id_cliente" ).val("");
+                                                    $("#tel1" ).val("");
+                                                    $("#mail" ).val("");
+                                                }
+                                    });	
+                            </script>
 
                         <div class="form-group row">
                             <label for="empresa" class="col-md-1 control-label">Vendedor</label>
@@ -100,34 +134,29 @@
 
 
 <div>
-    <table class='table table-dark table-striped' style="text-align: center">
-        <thead>
-            <tr>
-            <tr>
-                <th>Codigo</th>
-                <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Cantidad</th>
-                <th>Precio</th>
-                <th>Imagen</th>
-                <th>SubTotal</th>
-            </tr>
-        </thead>
+    <table class='table table-dark table-striped' id="myTable" style="text-align: center">
+        <thead></thead>
 
-        <tr *ngFor="let producto of productos">
-            <td>{{producto.producto_id}}</td>
-            <td>{{producto.producto_nombre}}</td>
-            <td>{{producto.producto_descripcion}}</td>
+        <tr>
+            <th>Codigo</th>
+            <th>Cantidad</th>          
+            <th>Precio</th>
+            <th>SubTotal</th>
+        </tr>
+
+        <tr *ngFor="let factura of factura">
+
+            <td>{{factura.detalles.detalle_id}}</td>
             <td>
                 <div class="form-group">
                     <label>Cantidad:
-                        <input style="text-align:center" [(ngModel)]="canti" class="form-control" type="number" />
+                        <input style="text-align:center" [(ngModel)]="factura.detalles.cantidad" class="form-control"
+                            type="number" />
                     </label>
                 </div>
             </td>
-            <td>{{producto.producto_precio}}</td>
-            <td><img src={{producto.producto_imagen}} high="50" width="150"></td>
-            <td>{{producto.producto_precio*canti}}</td>
+            <td>{{factura.detalles.precioVenta}}</td>
+            <td>{{factura.detalles.subtotal}}</td>
         </tr>
 
     </table>

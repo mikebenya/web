@@ -17,6 +17,6 @@ export class FacturaListComponent implements OnInit {
   }
 
   getVentas() {
-    this.facturaService.getFacturas().subscribe(Facturas => this.Facturas = Facturas);
+    this.facturaService.getCliente().subscribe(Facturas => this.Facturas = Facturas);
   }
 }

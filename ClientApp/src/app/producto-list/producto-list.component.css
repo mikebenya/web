@@ -1,10 +1,9 @@
 
-
 * {
         box-sizing: border-box;
-}
-
-#myInput {
+    }
+    
+    #myInput {
         background-image: url('/css/searchicon.png');
         background-position: 10px 10px;
         background-repeat: no-repeat;
@@ -13,26 +12,27 @@
         padding: 12px 20px 12px 40px;
         border: 1px solid #ddd;
         margin-bottom: 12px;
-}
-
-#myTable {
+    }
+    
+    
+    #myTable {
         border-collapse: collapse;
         width: 100%;
         border: 1px solid #ddd;
         font-size: 18px;
-}
-
-#myTable th,
-#myTable td {
+    }
+    
+    #myTable th,
+    #myTable td {
         text-align: left;
         padding: 12px;
-}
-
-#myTable tr {
+    }
+    
+    #myTable tr {
         border-bottom: 1px solid #ddd;
-}
-
-#myTable tr.header,
-#myTable tr:hover {
-        background-color: #270e3f;
-}
+    }
+    
+    #myTable tr.header,
+    #myTable tr:hover {
+        background-color: #000000;
+    }

@@ -4,6 +4,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { MaestraFactura } from '../models/maestra-factura';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +22,19 @@ export class FacturaMaestroService {
     );
   }
 
+  addFactura(maestraFactura: MaestraFactura): Observable<MaestraFactura> {
+    return this.http.post<MaestraFactura>(this.baseUrl + 'api/cliente', maestraFactura).pipe(
+      tap((newFactura: MaestraFactura) => this.log(`added NewSocio w/ id=${newFactura.maestro_id}`)),
+      catchError(this.handleError<MaestraFactura>('addCliente'))
+    );
+  }
+  getCliente(): Observable<MaestraFactura[]> {
+    return this.http.get<MaestraFactura[]>(this.baseUrl + 'api/FacturaMaestro')
+      .pipe(
+        tap(_ => this.log("Lista Cargada")),
+        catchError(this.handleError<MaestraFactura[]>('getCliente', []))
+      );
+  }
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: HttpErrorResponse): Observable<T> => {

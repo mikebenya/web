@@ -11,47 +11,75 @@ import { ActivatedRoute } from '@angular/router';
 import { MaestraFactura } from '../models/maestra-factura';
 import { Vendedor } from '../models/vendedor';
 import { VendedorService } from '../services/vendedor.service';
+import { FacturaMaestroService } from '../services/factura-maestro.service';
+
 @Component({
   selector: 'app-detalle-fadd',
   templateUrl: './detalle-fadd.component.html',
   styleUrls: ['./detalle-fadd.component.css']
 })
 export class DetalleFAddComponent implements OnInit {
-  detalleFactura: FacturaDetalle;
+  factura:MaestraFactura;
+  detalles:FacturaDetalle[];
   vendedores:Vendedor[];
   clientes: Cliente[];
-  producto: Producto;
   productos: Producto[];
   fecha: Date = new Date();
   fechaDeHoy: string = this.fecha.getDate() + '/' + this.fecha.getMonth() + '/' + this.fecha.getFullYear();
-  constructor(private route: ActivatedRoute, private productoService: ProductoService, private detalleFacturaService: DetalleFacturaService, private clienteService: ClienteService,private vendedorService: VendedorService) { }
+  constructor(private facturaMaestroService: FacturaMaestroService,private route: ActivatedRoute, private productoService: ProductoService, private detalleFacturaService: DetalleFacturaService, private clienteService: ClienteService,private vendedorService: VendedorService) { }
   canti = 1;
+  
   ngOnInit() {
-    this.productos = this.productoService.getComprar();
     this.getAlll();
-    this.getproductos()
     this.getAllvendedor();
-    this.producto = { producto_id: '', producto_nombre: '', producto_precio: 0, producto_descripcion: '', producto_imagen: '', producto_costo: 0, producto_iva: 0, producto_estado: false };
-    this.detalleFactura = { detalle_id: '', detalle_cantidad: 0, detalle_precio_ven: 0, detalle_fecha_det: null, detalle_subtotal: 0, detalle_cod_factura: '', detalle_cod_producto: '',producto:this.producto,facturaMaestro:null };
+    this.factura = { maestro_id: '', maestro_fecha_fac: null, maestro_total: 0, maestro_cc_cliente: null, maestro_facDetalles: null, maestro_cc_vendedor: '', cliente: null,vendedor:null };
+    this.productos = this.productoService.getComprar();
+    //  this. llenarDetalles();
+    this.listaDetalles();
   }
+
   getAlll() {
     this.clienteService.getCliente().subscribe(clientes => this.clientes = clientes);
   }
-  getproductos() {
-    this.productoService.getProducto().subscribe(productos => this.productos = this.productos);
-  }
+  
 
   getCliente(id: number) {
     this.clienteService.get(id)
   }
 
+  addFactura() {
+    this.facturaMaestroService.addFactura(this.factura)
+    .subscribe(factura => {
+    alert('Se agrego una factura')
+    });
+    }
+
   getAllvendedor(){
     this.vendedorService.getvendedor().subscribe(vendedores=>this.vendedores=vendedores);
     }
-  buy() {
-    const compra = this.productos.filter(compras => compras.producto_estado);
-    localStorage.clear();
-    localStorage.setItem('compra', JSON.stringify(compra));
-    alert(JSON.stringify(localStorage.getItem('compra')));
-  }
+
+    listaDetalles(){
+      var index=0;
+      
+      for (let item of this.productos) {
+        this.detalles[index].detalle_id=item.producto_id;
+        this.detalles[index].detalle_cod_producto=item.producto_id;
+        this.detalles[index].producto=item;
+        this.detalles[index].detalle_precio_ven=item.producto_precio;
+        index+=1;
+      }
+      this.factura.maestro_facDetalles=this.detalles;
+    }
+
+    llenarDetalles(){
+      for (let index = 0; index < this.productos.length,this.detalles=[]; index++) {
+        const item = this.productos[index];
+        this.detalles[index].detalle_id=item.producto_id;
+        this.detalles[index].detalle_cod_producto=item.producto_id;
+        this.detalles[index].producto=item;
+        this.detalles[index].detalle_precio_ven=item.producto_precio;
+      }
+      this.factura.maestro_facDetalles=this.detalles;
+    }
+
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../models/cliente';
 import { ClienteService } from '../services/cliente.service';
-import { MaestraFactura } from '../models/maestra-factura';
+
 
 @Component({
   selector: 'app-cliente-add',

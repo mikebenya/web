@@ -11,6 +11,9 @@ import { FacturaAddComponent } from './factura-add/factura-add.component';
 import { MenuComponent } from './menu/menu.component';
 import { FacturaListComponent } from './factura-list/factura-list.component';
 
+
+
+
 const routes: Routes = [
   { path:'clientesAdd', component:ClienteAddComponent },
   { path:'menu', component:MenuComponent },
@@ -20,11 +23,10 @@ const routes: Routes = [
   { path:'productoList', component:ProductoListComponent },
   { path:'detalle', component:DetalleFAddComponent },
   { path:'detalle/:cliente_id', component:DetalleFAddComponent },
-  { path:'factura', component:FacturaAddComponent },
   { path:'facturaLista', component:FacturaListComponent },
   ];
 
-
+  export const appRoutingModule = RouterModule.forRoot(routes);
 
   @NgModule({
     imports: [ RouterModule.forRoot(routes) ],

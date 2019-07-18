@@ -13,6 +13,7 @@
     margin-bottom: 12px;
 }
 
+
 #myTable {
     border-collapse: collapse;
     width: 100%;
@@ -32,5 +33,5 @@
 
 #myTable tr.header,
 #myTable tr:hover {
-    background-color: #270e3f;
+    background-color: #000000;
 }
