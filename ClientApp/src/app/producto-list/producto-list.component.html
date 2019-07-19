@@ -16,6 +16,7 @@
         <th>Precio</th>
         <th>Imagen</th>
         <th>Comprar</th>
+        <th>Modificar-Elimi</th>
       </tr>
     </thead>
 
@@ -79,6 +80,7 @@
       <td>{{producto.producto_precio}}</td>
       <td><img src={{producto.producto_imagen}} high="50" width="150"></td>
       <td><input type="checkbox" class="form-control" id="ChkCompra" [(ngModel)]="producto.producto_estado"></td>
+      <td><a routerLink="/productoEditElim/{{producto.producto_id}}">Editar-Modifi</a></td>
     </tr>
 
   </table>

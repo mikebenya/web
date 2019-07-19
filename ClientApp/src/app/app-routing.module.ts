@@ -8,21 +8,20 @@ import { ProductoAddComponent } from './producto-add/producto-add.component';
 import { ProductoListComponent } from './producto-list/producto-list.component';
 import { DetalleFAddComponent } from './detalle-fadd/detalle-fadd.component';
 import { FacturaAddComponent } from './factura-add/factura-add.component';
-import { MenuComponent } from './menu/menu.component';
 import { FacturaListComponent } from './factura-list/factura-list.component';
-
+import { ProductoEditElimComponent } from './producto-edit-elim/producto-edit-elim.component';
 
 
 
 const routes: Routes = [
   { path:'clientesAdd', component:ClienteAddComponent },
-  { path:'menu', component:MenuComponent },
   { path:'clientesList', component:ClienteListComponent },
   { path:'clientesEditElim/:cliente_id', component:ClienteEditElimComponent },
   { path:'productoAdd', component:ProductoAddComponent },
   { path:'productoList', component:ProductoListComponent },
   { path:'detalle', component:DetalleFAddComponent },
   { path:'detalle/:cliente_id', component:DetalleFAddComponent },
+  { path:'productoEditElim/:producto_id', component:ProductoEditElimComponent },
   { path:'facturaLista', component:FacturaListComponent },
   ];
 

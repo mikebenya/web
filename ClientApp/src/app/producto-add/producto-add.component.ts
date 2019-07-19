@@ -10,15 +10,23 @@ import { Producto } from '../models/producto';
 export class ProductoAddComponent implements OnInit {
 
   producto: Producto;
+  productos: Producto[];
   constructor(private productoService: ProductoService) { }
   ngOnInit() {
     this.producto = { producto_id: '', producto_nombre: '', producto_precio: 0, producto_descripcion: '', producto_imagen: '', producto_costo: 0, producto_iva: 0, producto_estado: false,};
+    // this.getAll();
   }
 
   add() {
-    this.productoService.addProducto(this.producto)
-      .subscribe(cliente => {
-        alert('Se agrego un nuevo Socio')
-      });
+    // this.cargarCodigo();
+    this.productoService.addProducto(this.producto).subscribe(cliente => {alert('Se agrego un nuevo Socio')});
   }
+
+  // getAll() {
+  //   this.productoService.getProducto().subscribe(dep => this.productos = dep);
+  // }
+  // cargarCodigo() {
+  //   var n = this.productos.length + 1;
+  //   this.producto.producto_id = ''+n;
+  // }
 }

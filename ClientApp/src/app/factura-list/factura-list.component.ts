@@ -11,7 +11,6 @@ export class FacturaListComponent implements OnInit {
 
   Facturas: MaestraFactura[];
   constructor(private facturaService: FacturaMaestroService) { }
-
   ngOnInit() {
     this.getVentas();
   }

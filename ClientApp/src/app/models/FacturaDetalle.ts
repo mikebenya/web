@@ -9,7 +9,6 @@ export class FacturaDetalle {
     detalle_subtotal : number; 
 	detalle_cod_factura : string;
     detalle_cod_producto : string;
-    // detalle_nom_producto : string;
     producto : Producto;
     facturaMaestro:MaestraFactura;
 }

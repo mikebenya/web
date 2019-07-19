@@ -11,32 +11,26 @@ import { Alert } from 'selenium-webdriver';
   styleUrls: ['./producto-list.component.css']
 })
 export class ProductoListComponent implements OnInit {
-
-  detalleFacturas : FacturaDetalle[];
   producto : Producto;
   productos: Producto[];
   constructor(private productoService: ProductoService, private detalleFacturaService: DetalleFacturaService) { }
   filterPost = '';
-  detalles: FacturaDetalle[];
+
+
   ngOnInit() {
     this.getAll();
     this.producto = { producto_id: '', producto_nombre: '',  producto_precio: 0, producto_descripcion: '', producto_imagen: '',producto_costo:0 ,producto_iva:0 ,producto_estado:false};
     
   }
-
-
   getAll() {
     this.productoService.getProducto().subscribe(productos => this.productos = productos);
   }
 
   buy(){
     const compra = this.productos.filter(compras => compras.producto_estado === true );
-   
- 
     localStorage.clear();
     localStorage.setItem('compra',JSON.stringify(compra));
     alert(JSON.stringify(localStorage.getItem('compra')));
-   
   }
 
 }

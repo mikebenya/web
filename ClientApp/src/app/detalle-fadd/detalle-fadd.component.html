@@ -1,29 +1,15 @@
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-</head>
-
-
-<!-- <body>
-    <div class="navbar navbar-default navbar-fixed-bottom">
-        <div class="container">
-            <p class="navbar-text pull-left">© 2019 - Zenky Mark.
-
-            </p>
-        </div>
-    </div>
-
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-
-</body> -->
 
 <!DOCTYPE html>
 <html>
 
 <body>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
     <div class="container">
         <div class="panel panel-info">
             <div class="panel-heading">
@@ -32,10 +18,9 @@
             <div class="panel-body">
                 <div class="container" id="advanced-search-form">
 
-
                     <form class="form-horizontal" role="form" id="datos_factura">
                         <div class="form-group row">
-                            <label for="nombre_cliente" [(ngModel)]="nom" class="col-md-1 control-label">Cliente</label>
+                            <label for="nombre_cliente" class="col-md-1 control-label">Cliente</label>
                             <div class="col-md-3">
                                 <input type="text" class="form-control input-sm ui-autocomplete-input"
                                     id="nombre_cliente" placeholder="Selecciona un cliente" required=""
@@ -127,41 +112,34 @@
             </div>
         </div>
     </div>
+
+
+
+    <table class='table table-dark table-striped' style="text-align: center">
+            <thead   id="myTable">
+              <tr >
+                <th>codigo</th>
+                <th>Nombre</th>       
+                <th>cantidad</th>
+                <th>Precio unitario</th>
+                <th>Subtotal</th>
+              </tr>
+            </thead>
+        
+            <tr *ngFor="let factura of factura.maestro_facDetalles">
+              <td>{{factura.detalle_id}}</td>
+              <td>{{factura.producto.producto_nombre}}</td>
+              <td><div class="form-group">
+                    <label>Cantidad:
+                      <input style="text-align:center" [(ngModel)]="factura.detalle_cantidad" class="form-control" type="text" />
+                    </label>
+                  </div></td>
+              <td>{{factura.detalle_precio_ven}}</td>
+              <td>{{(factura.detalle_cantidad)*(factura.detalle_precio_ven)}}</td>
+            </tr>
+        </table>
 </body>
 
 </html>
 
 
-
-<div>
-    <table class='table table-dark table-striped' id="myTable" style="text-align: center">
-        <thead></thead>
-
-        <tr>
-            <th>Codigo</th>
-            <th>Cantidad</th>          
-            <th>Precio</th>
-            <th>SubTotal</th>
-        </tr>
-
-        <tr *ngFor="let factura of factura">
-
-            <td>{{factura.detalles.detalle_id}}</td>
-            <td>
-                <div class="form-group">
-                    <label>Cantidad:
-                        <input style="text-align:center" [(ngModel)]="factura.detalles.cantidad" class="form-control"
-                            type="number" />
-                    </label>
-                </div>
-            </td>
-            <td>{{factura.detalles.precioVenta}}</td>
-            <td>{{factura.detalles.subtotal}}</td>
-        </tr>
-
-    </table>
-    <div class="form-group">
-        <button (click)="buy()" right="300" class="btn btn-primary" [routerLink]='["/listaventa"]'>COMPRAR
-            SELECIONADOS</button>
-    </div>
-</div>

@@ -24,7 +24,7 @@ export class ClienteEditElimComponent implements OnInit {
   }
 
   get(): void {
-    const id =
+    var id =
       +this.route.snapshot.paramMap.get('cliente_id');
     this.clienteService.get(id)
       .subscribe(hero => this.cliente = hero);

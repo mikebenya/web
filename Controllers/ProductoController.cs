@@ -43,7 +43,7 @@ namespace TaskSharpHTTP.Controllers
 
 
         // PUT: api/Task/5
-        [HttpPut("{producto_id}")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> PutProducto(string id, Producto item)
         {
             if (id != item.PRODUCTO_ID)
@@ -66,7 +66,7 @@ namespace TaskSharpHTTP.Controllers
         }
 
         // GET: api/Task/5
-        [HttpGet("{producto_id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<Producto>> GetProducto(string id)
         {
             var taskItem = await _context.Productos.FindAsync(id);
@@ -80,7 +80,7 @@ namespace TaskSharpHTTP.Controllers
         }
 
         // DELETE: api/Todo/5
-        [HttpDelete("{producto_id}")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProducto(string id)
         {
             var TaskItem = await _context.Productos.FindAsync(id);

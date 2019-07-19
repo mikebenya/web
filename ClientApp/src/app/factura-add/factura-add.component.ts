@@ -14,8 +14,7 @@ export class FacturaAddComponent implements OnInit {
   fechaDeHoy = this.fecha.getDate() + '/0' + (1+this.fecha.getMonth()) + '/' + this.fecha.getFullYear();
   constructor(private route: ActivatedRoute,private vendedorService: VendedorService) { }
   ngOnInit() {
-    this.getAll();
-    
+    this.getAll();    
   }
 
   getAll(){

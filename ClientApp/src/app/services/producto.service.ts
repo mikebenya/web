@@ -33,6 +33,27 @@ export class ProductoService {
     );
   }
 
+  update (producto: Producto): Observable<any> {
+    const url =
+    
+    `${this.baseUrl + 'api/producto'}/${producto.producto_id}`;
+    return this.http.put(url, producto, httpOptions).pipe(
+    tap(_ => this.log(`updated productos codigo=${producto.producto_id}`)),
+    catchError(this.handleError<any>('libro'))
+    );
+    }
+
+
+  delete (producto: Producto | number): Observable<Producto> {
+    const id = typeof producto === 'number' ? producto : producto.producto_id;
+    const url = 
+    `${this.baseUrl + 'api/producto'}/${id}`;   
+    return this.http.delete<Producto>(url, httpOptions).pipe(
+    tap(_ => this.log(`deleted producto codigo=${id}`)),
+    catchError(this.handleError<Producto>('delete'))
+    );
+    }
+
   getProducto(): Observable<Producto[]> {
     return this.http.get<Producto[]>(this.baseUrl + 'api/producto')
       .pipe(
